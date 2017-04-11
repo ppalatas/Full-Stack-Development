@@ -17,9 +17,10 @@ function pageController(){
 		$data['page'] = 1;
 	}
 
-	if($data['page'] < 1){
+	if($data['page'] < 1 || !is_numeric($data['page'])){
 		$data['page'] = 1;
-	} elseif ($data['page'] >= 3){
+		header ("location: national_parks.php?page=1");
+	} elseif ($data['page'] >= 3 || !is_numeric($data['page'])){
 		$data['page'] = 3;
 		echo "Last Page";
 	}
